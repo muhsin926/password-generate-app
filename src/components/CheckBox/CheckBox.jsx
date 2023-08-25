@@ -1,30 +1,19 @@
 import React from "react";
 import "./checkBox.css";
 
-const list = [
-  "include number",
-  "include simbal",
-  "include lowercase",
-  "include uppercase",
-];
-
 const CheckBox = ({ checkboxData, handleCheckboxChange }) => {
   return (
     <div className="checkbox">
       {checkboxData.map((data, i) => (
-        <>
+        <div key={i}>
           <input
             type="checkbox"
             checked={data.state}
             onChange={() => handleCheckboxChange(i)}
-            style={{ transform: "scale(1.5)" }}
+            className="input"
           />
-          <label
-            style={{ fontSize: "1.5rem", marginLeft: "1rem", color: "white" }}
-          >
-            {data.title}
-          </label>
-        </>
+          <label>{data.title}</label>
+        </div>
       ))}
     </div>
   );

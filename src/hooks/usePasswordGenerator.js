@@ -11,10 +11,10 @@ const usePasswordGenerator = () => {
     const selectedOption = checkboxData.filter((checkbox) => checkbox.state);
 
     if (length < 4) {
-        setErrorMessage("Select minimum 4 length.");
-        setPassword("");
-        return;
-      }
+      setErrorMessage("Select minimum 4 length.");
+      setPassword("");
+      return;
+    }
 
     if (selectedOption.length === 0) {
       setErrorMessage("Select at least one option.");

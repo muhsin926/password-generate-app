@@ -1,5 +1,20 @@
-.checkbox{
+.checkbox {
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    row-gap: 1rem;
+    grid-template-columns: auto auto;
+    gap: 1rem;
+}
+
+.checkbox div {
+    display: flex;
+    gap: 8px;
+}
+
+.input {
+    transform: scale(1.5);
+}
+
+label {
+    font-size: 1rem;
+    /* margin-left: .5rem;  */
+    color: white;
 }

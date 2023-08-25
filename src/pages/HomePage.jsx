@@ -4,6 +4,13 @@ import CharacterLength from "../components/CharacterLength/CharacterLength";
 import CheckBox from "../components/CheckBox/CheckBox";
 import usePasswordGenerator from "../hooks/usePasswordGenerator";
 
+const style = {
+  width: "100%",
+  height: "3rem",
+  fontSize: "1.5rem",
+  fontWeight: 600,
+};
+
 const HomePage = () => {
   const [length, setLength] = useState(4);
   const [checkboxData, setCheckboxData] = useState([
@@ -12,7 +19,7 @@ const HomePage = () => {
     { title: "Include Uppercase Letters", state: false },
     { title: "Include Lowercase Letters", state: false },
   ]);
-  const [copied, setCopied] = useState(false)
+  const [copied, setCopied] = useState(false);
 
   const { password, errorMessage, generatePassword } = usePasswordGenerator();
 
@@ -38,7 +45,10 @@ const HomePage = () => {
         {password && (
           <div className="flex justify-between gap">
             <div className="passwordField">{password}</div>
-            <Button onClick={() => handleCopy()} title={copied ? 'copied' :"copy"} />
+            <Button
+              onClick={() => handleCopy()}
+              title={copied ? "copied" : "copy"}
+            />
           </div>
         )}
         <CharacterLength state={length} setState={setLength} />
@@ -48,12 +58,7 @@ const HomePage = () => {
         />
         {errorMessage && <h3 className="error">{errorMessage}</h3>}
         <Button
-          styles={{
-            width: "100%",
-            height: "3rem",
-            fontSize: "1.5rem",
-            fontWeight: 600,
-          }}
+          styles={style}
           title={"Generate Password"}
           onClick={() => generatePassword(checkboxData, length)}
         />
