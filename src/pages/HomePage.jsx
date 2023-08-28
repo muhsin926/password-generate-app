@@ -12,7 +12,7 @@ const style = {
 };
 
 const HomePage = () => {
-  const [length, setLength] = useState(4);
+  const [length, setLength] = useState(8);
   const [checkboxData, setCheckboxData] = useState([
     { title: "Include Numbers", state: false },
     { title: "Include Symbols", state: false },
@@ -38,13 +38,22 @@ const HomePage = () => {
     }, 1000);
   };
 
+  const maskPassword = (password) => {
+    // Calculate the index where the masking should start
+    const startIndex = Math.max(password.length - 5, 0);
+    const visiblePart = password.slice(0, startIndex);
+    const maskedPart = "*".repeat(5);
+    const maskedPassword = visiblePart + maskedPart;
+    return maskedPassword;
+  };
+
   return (
     <main className="container">
       <div className="glass">
         <h1>Password Generator</h1>
         {password && (
           <div className="flex justify-between gap">
-            <div className="passwordField">{password}</div>
+            <div className="passwordField">{maskPassword(password)}</div>
             <Button
               onClick={() => handleCopy()}
               title={copied ? "copied" : "copy"}

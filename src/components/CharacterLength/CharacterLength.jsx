@@ -15,7 +15,7 @@ const CharacterLength = ({ state, setState }) => {
         style={{ width: "100%" }}
         type="range"
         min={1}
-        max={16}
+        max={20}
         value={state}
         onChange={(e) => setState(e.target.value)}
       />
